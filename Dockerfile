@@ -4,7 +4,8 @@ MAINTAINER Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch
 LABEL date="11/01/18"
 LABEL description="Serveur HTTP - apache2"
 
-RUN apt-get -y -q --no-install-recommends \
+RUN apt-get update \
+ && apt-get -y -q --no-install-recommends \
     install apache2 \
             openssl
 
