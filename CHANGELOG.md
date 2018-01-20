@@ -4,4 +4,4 @@
 - Add a Makefile
 
 ## 18.01.11
-- Initialisation this repo
+- Initialisation of this repository
