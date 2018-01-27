@@ -1,7 +1,7 @@
 FROM canelrom1/debian-canel:latest
-MAINTAINER Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch
 
-LABEL date="11/01/18"
+LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
+LABEL date="27/01/18"
 LABEL description="Serveur HTTP - apache2"
 
 RUN apt-get update \

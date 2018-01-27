@@ -1,4 +1,6 @@
 # Change log
+## 18.01.27
+- Delete MAINTAINER (deprecated)
 
 ## 18.01.14
 - Add a Makefile
