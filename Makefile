@@ -1,6 +1,6 @@
 prefix ?= canelrom1
 name   ?= apache2
-tag    ?= $(shell date +%y.%m.%m)
+tag    ?= $(shell date +%y.%m.%d)
 
 port   ?= 80
 
