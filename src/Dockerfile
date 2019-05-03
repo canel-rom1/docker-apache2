@@ -1,12 +1,13 @@
 FROM alpine:latest
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
-LABEL date="07/11/2018"
+LABEL date="05/05/2019"
 LABEL description="Serveur HTTP"
 
 RUN apk update \
  && apk add apache2 \
-            apache2-ssl
+            apache2-ssl \
+            curl
 
 RUN mkdir -p /run/apache2 \
  && rm /etc/apache2/conf.d/info.conf
@@ -21,6 +22,8 @@ COPY ./www/index.html /var/www/html/
 
 EXPOSE 80
 EXPOSE 443
+
+HEALTHCHECK CMD curl -f "http://localhost:80" || exit 1
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
