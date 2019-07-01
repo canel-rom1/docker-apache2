@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  apache:
+    image: 'canelrom1/apache2:latest'
+    #build:
+    #  context: ./src
+    container_name: apache2
+    #restart: on-failure
+    volumes:
+      - ./html:/var/www/html
+
+# vim: ft=yaml tw=80 et ts=2 sw=2 sts=2
