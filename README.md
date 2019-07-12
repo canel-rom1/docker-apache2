@@ -18,3 +18,11 @@ To clean docker images:
 ```bash
 $ make clean
 ```
+
+
+# Environment variable
+
+APACHE_RUN_USER
+APACHE_RUN_GROUP
+APACHE_SERVERADMIN
+APACHE_SERVERNAME

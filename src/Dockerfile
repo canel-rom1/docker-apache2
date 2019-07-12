@@ -20,6 +20,11 @@ COPY ./conf/website-ssl.conf /etc/apache2/conf.d/website-ssl.conf
 COPY ./www/canel.gif /var/www/html/
 COPY ./www/index.html /var/www/html/
 
+ENV APACHE_RUN_USER     apache
+ENV APACHE_RUN_GROUP    apache
+ENV APACHE_SERVERADMIN  webmaster@localhost
+ENV APACHE_SERVERNAME   localhost
+
 EXPOSE 80
 EXPOSE 443
 
