@@ -1,10 +1,13 @@
 version: '3.7'
 services:
   apache:
-    build:
-      context: ./src
-    container_name: apache2
+    image: 'canelrom1/apache:latest'
+    #build:
+    #  context: ./src
+    container_name: apache
     ports:
       - '80:80'
+    environment:
+      - 'APACHE_HTACCESS=0'
 
 # vim: ft=yaml tw=80 et ts=2 sw=2 sts=2

@@ -8,6 +8,8 @@ services:
     #restart: on-failure
     networks:
       - traefik_wan
+    environment:
+      - 'APACHE_HTACCESS=1'
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:localhost"
