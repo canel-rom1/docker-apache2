@@ -7,6 +7,8 @@ services:
     container_name: apache
     ports:
       - '80:80'
+    #volumes:
+      #- ./src/entrypoint.sh:/entrypoint.sh
     environment:
       - 'APACHE_HTACCESS=0'
 

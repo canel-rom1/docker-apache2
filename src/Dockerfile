@@ -31,8 +31,8 @@ EXPOSE 443
 
 HEALTHCHECK CMD curl -f "http://localhost:80" || exit 1
 
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["apache2"]
