@@ -1,5 +1,5 @@
 prefix  ?= canelrom1
-name    ?= apache
+name    ?= apache2
 tag     ?= $(shell date +%Y%m%d.%H%M%S)
 
 env_file = ./environment.conf
