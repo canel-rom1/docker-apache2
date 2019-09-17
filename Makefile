@@ -1,6 +1,6 @@
 prefix ?= canelrom1
 name   ?= apache2
-tag    ?= $(shell date +%y.%m.%d)
+tag    ?= $(shell date +%Y%m%d.%H%M%S)
 
 port   ?= 80
 
@@ -14,10 +14,8 @@ build: Dockerfile
 	docker build -t $(prefix)/$(name):$(tag) .
 	docker tag $(prefix)/$(name):$(tag) $(prefix)/$(name):latest 
 
-stop:
+rm:
 	docker stop $(name)
-
-rm: stop
 	docker rm $(name)
 
 clean-docker:

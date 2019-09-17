@@ -1,4 +1,4 @@
-FROM canelrom1/debian-canel:latest
+FROM canelrom1/debian-canel:debian10
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
 LABEL date="27/01/18"
