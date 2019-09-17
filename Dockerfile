@@ -1,4 +1,4 @@
-FROM canelrom1/debian-canel:debian10
+FROM canelrom1/debian-canel:buster
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
 LABEL date="27/01/18"
@@ -38,8 +38,6 @@ ENV APACHE_PID_FILE     /var/run/apache2.pid
 ENV APACHE_RUN_DIR      /var/run/
 ENV APACHE_LOCK_DIR     /var/lock/
 ENV APACHE_LOG_DIR      /var/log/apache2
-
-VOLUME /var/www/html
 
 EXPOSE 80
 EXPOSE 443

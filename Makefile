@@ -12,7 +12,7 @@ run:
 
 build: Dockerfile
 	docker build -t $(prefix)/$(name):$(tag) .
-	docker tag $(prefix)/$(name):$(tag) $(prefix)/$(name):latest 
+	docker tag $(prefix)/$(name):$(tag) $(prefix)/$(name):debian10 
 
 rm:
 	docker stop $(name)
