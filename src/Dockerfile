@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
-LABEL date="05/05/2019"
+LABEL date="11/12/2019"
 LABEL description="Serveur HTTP"
 
 RUN apk update \
