@@ -3,18 +3,11 @@
 set -e
 trap "echo SIGNAL" HUP INT QUIT KILL TERM
 
-ENTRYPOINT="/entrypoint.sh"
-if [ -f "${ENTRYPOINT}" ]
-then
-        source ${ENTRYPOINT}
-fi
-
-if [ -n "${APACHE_HTACCESS}" ] && [ "${APACHE_HTACCESS}" -ne 0 ]
-then
-        echo "HTACCESS" > /dev/stdout
-        sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf
-        sed -i '/AllowOverride/s/None/all/g' /etc/apache2/conf.d/website*
-fi
+for file in /entrypoints/*.sh
+do
+        echo "DOCKER Apache2: Load ${file} file" > /dev/stdout
+        source "${file}"
+done
 
 if [ "${1:0:1}" = "-" ] ; then
 	exec /usr/sbin/httpd "$@"

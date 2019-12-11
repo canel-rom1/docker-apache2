@@ -1,4 +1,6 @@
 # Change log
+## 11/12/2019
+- Create a directory for entrypoints
 ## 05/05/2019
 - add healthcheck in dockerfile
 ## 02/03/2019

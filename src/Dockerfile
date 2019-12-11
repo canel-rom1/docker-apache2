@@ -9,6 +9,8 @@ RUN apk update \
             apache2-ssl \
             curl
 
+RUN mkdir /entrypoints
+
 RUN mkdir -p /run/apache2 \
  && rm /etc/apache2/conf.d/info.conf
 
@@ -31,8 +33,9 @@ EXPOSE 443
 
 HEALTHCHECK CMD curl -f "http://localhost:80" || exit 1
 
+COPY ./entrypoint-apache2.sh /entrypoints/10-apache2.sh
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh /entrypoints/10-apache2.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["apache2"]
