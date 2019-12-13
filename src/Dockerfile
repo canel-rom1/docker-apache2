@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM canelrom1/alpine-canel:latest
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
 LABEL date="11/12/2019"
