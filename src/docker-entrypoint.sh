@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 set -e
 trap "echo SIGNAL" HUP INT QUIT KILL TERM
