@@ -39,5 +39,8 @@ clean-docker-latest:
 
 clean: clean-docker clean-old-images
 
+monitor:
+	docker exec -it $(name) $(use_shell)
+
 
 # vim: ft=make
