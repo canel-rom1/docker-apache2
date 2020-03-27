@@ -20,11 +20,11 @@ COPY ./conf/ssl.conf /etc/apache2/ssl.conf
 COPY ./conf/website.conf /etc/apache2/conf.d/website.conf
 COPY ./conf/website-ssl.conf /etc/apache2/conf.d/website-ssl.conf
 
-COPY ./www/canel.gif /var/www/html/
-COPY ./www/index.html /var/www/html/
+COPY ./www /tmp/www
 
 ENV APACHE_RUN_USER     apache
 ENV APACHE_RUN_GROUP    apache
+ENV APACHE_HTML_DIR     /var/www/html
 ENV APACHE_SERVERADMIN  webmaster@localhost
 ENV APACHE_SERVERNAME   localhost
 ENV APACHE_HTACCESS=0
