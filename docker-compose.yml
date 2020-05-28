@@ -10,6 +10,7 @@ services:
     #volumes:
       #- ./src/entrypoint.sh:/entrypoint.sh
     environment:
+      - 'DEBUG=1'
       - 'APACHE_HTACCESS=0'
 
 # vim: ft=yaml tw=80 et ts=2 sw=2 sts=2
