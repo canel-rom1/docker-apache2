@@ -1,7 +1,7 @@
 FROM canelrom1/alpine-canel:3.11.6
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
-LABEL date="24/03/2020"
+LABEL date="05/06/2020"
 LABEL description="Serveur HTTP"
 
 RUN apk update \
@@ -20,14 +20,16 @@ COPY ./conf/ssl.conf /etc/apache2/ssl.conf
 COPY ./conf/website.conf /etc/apache2/conf.d/website.conf
 COPY ./conf/website-ssl.conf /etc/apache2/conf.d/website-ssl.conf
 
-COPY ./www /tmp/www
-
 ENV APACHE_RUN_USER     apache
 ENV APACHE_RUN_GROUP    apache
 ENV APACHE_HTML_DIR     /var/www/html
 ENV APACHE_SERVERADMIN  webmaster@localhost
 ENV APACHE_SERVERNAME   localhost
 ENV APACHE_HTACCESS=0
+
+COPY ./www /tmp/www
+RUN  rm -fr ${APACHE_HTML_DIR} \
+ &&  mv /tmp/www ${APACHE_HTML_DIR}
 
 EXPOSE 80
 EXPOSE 443
