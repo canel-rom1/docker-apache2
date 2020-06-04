@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 
+
 set -e
 if [ "${DEBUG}" -eq 1 ]
 then
         echo "Debug mode activated" > /dev/stdout
-        set -x +e
+        set -x
 fi
 
 trap "echo SIGNAL" HUP INT QUIT KILL TERM
@@ -16,7 +17,6 @@ do
         if [ "${DEBUG}" -eq 1 ]
         then
                 echo "DOCKER Apache2: Finish ${file}" > /dev/stdout
-                set -x +e
         fi
 done
 
