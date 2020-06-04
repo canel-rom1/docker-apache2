@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-#APACHE_HTML_DIR_TMP=/tmp/www
+APACHE_HTML_DIR_TMP=/tmp/www
 
 if [ -d "${APACHE_HTML_DIR_TMP}" ]
 then
