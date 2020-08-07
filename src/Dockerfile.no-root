@@ -22,8 +22,8 @@ COPY ./conf/website-ssl.conf /etc/apache2/conf.d/website-ssl.conf
 
 ENV APACHE_RUN_USER     apache
 ENV APACHE_RUN_GROUP    apache
-ENV APACHE_PORT_HTTP    80
-ENV APACHE_PORT_HTTPS   443
+ENV APACHE_PORT_HTTP    8080
+ENV APACHE_PORT_HTTPS   4443
 ENV APACHE_HTML_DIR     /var/www/html
 ENV APACHE_SERVERADMIN  webmaster@localhost
 ENV APACHE_SERVERNAME   localhost
@@ -48,7 +48,7 @@ COPY ./entrypoint-apache2.sh /entrypoints/10-apache2.sh
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh /entrypoints/10-apache2.sh
 
-# USER ${APACHE_RUN_USER}
+USER ${APACHE_RUN_USER}
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["apache2"]
