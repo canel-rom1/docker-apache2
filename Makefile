@@ -1,40 +1,45 @@
-prefix  ?= canelrom1
-name    ?= apache2
-tag     ?= $(shell date +%Y%m%d.%H%M%S)
+NAME    	?= apache2
+CONTAINER	?= $(NAME)
+PREFIX  	?= canelrom1
+IMAGE		?= $(PREFIX)/$(NAME)
+TAG     	?= $(shell date +%Y%m%d.%H%M%S)
 
-build_dir = src
-use_shell = sh
+HTTP_PORT  		= 80
+HTTPS_PORT 		= 443
+CONTAINER_HTTP_PORT  	= 80
+CONTAINER_HTTPS_PORT 	= 443
 
-http_port  = 80
-https_port = 443
+BUILD_DIR = ./src
+USE_SHELL = sh
 
 
 all: build
 
-run:
-	docker run -it --rm $(prefix)/$(name):latest $(use_shell)
-
 build: src/Dockerfile
-	docker build -t $(prefix)/$(name):$(tag) $(build_dir)
-	docker tag $(prefix)/$(name):$(tag) $(prefix)/$(name):latest 
+	docker build -t $(IMAGE):$(TAG) $(BUILD_DIR)
+	docker tag $(IMAGE):$(TAG) $(IMAGE):latest 
 
 newbuild: src/Dockerfile
-	docker build --pull -t $(prefix)/$(name):$(tag) $(build_dir)
-	docker tag $(prefix)/$(name):$(tag) $(prefix)/$(name):latest 
+	docker build --pull -t $(IMAGE):$(TAG) $(BUILD_DIR)
+	docker tag $(IMAGE):$(TAG) $(IMAGE):latest 
+
+run:
+	docker run -it --rm $(IMAGE):latest $(USE_SHELL)
 
 start:
-	docker run -d -p $(http_port):80 -p $(https_port):443 --name $(name) $(prefix)/$(name):latest
+	docker run -d --name $(CONTAINER) \
+		-p $(HTTP_PORT):$(CONTAINER_HTTP_PORT) \
+		-p $(HTTPS_PORT):$(CONTAINER_HTTPS_PORT) \
+		$(IMAGE):latest
 
 stop:
-	docker stop $(name)
+	docker stop $(CONTAINER)
 
 rm: stop
-	docker rm $(name)
+	docker rm $(CONTAINER)
 
-clean: clean-docker clean-old-images
-
-monitor:
-	docker exec -it $(name) $(use_shell)
+shell:
+	docker exec -it $(CONTAINER) $(USE_SHELL)
 
 
 # vim: ft=make
