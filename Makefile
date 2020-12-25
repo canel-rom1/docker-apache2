@@ -1,7 +1,7 @@
 NAME    	?= apache2
 CONTAINER	?= $(NAME)
-PREFIX  	?= canelrom1
-IMAGE		?= $(PREFIX)/$(NAME)
+REPO  		?= canelrom1
+IMAGE		?= $(REPO)/$(NAME)
 TAG     	?= $(shell date +%Y%m%d.%H%M%S)
 
 HTTP_PORT  		= 80
