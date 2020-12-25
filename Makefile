@@ -41,5 +41,10 @@ rm: stop
 shell:
 	docker exec -it $(CONTAINER) $(USE_SHELL)
 
+push:
+	git push
+	git push --tags
+	git push github master --tags
+
 
 # vim: ft=make
