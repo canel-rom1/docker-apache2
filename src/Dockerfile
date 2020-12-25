@@ -1,11 +1,10 @@
-FROM canelrom1/alpine-canel:3.11.6
+FROM canelrom1/alpine-canel:3.12.3
 
 LABEL maintainer="Rom1 <rom1@canel.ch> - CANEL - https://www.canel.ch"
-LABEL date="13/07/2020"
-LABEL description="Serveur HTTP"
+LABEL date="25/12/2020"
+LABEL description="Serveur HTTP - Apache"
 
-RUN apk update \
- && apk add --no-cache \
+RUN apk  add --no-cache --update \
             apache2 \
             apache2-ssl \
             curl
